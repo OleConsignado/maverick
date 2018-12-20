@@ -1,0 +1,9 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Ole Consignado",
+  "classifications": [ "WebAPI", "DDD" ],
+  "identity": "Maverick",
+  "name": "Maverick",
+  "shortName": "maverick",
+  "sourceName": "Maverick"
+}

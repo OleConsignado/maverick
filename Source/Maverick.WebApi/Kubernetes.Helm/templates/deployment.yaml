@@ -1,0 +1,61 @@
+apiVersion: apps/v1beta2 
+kind: Deployment
+metadata:
+  name: {{ .Values.Name | default .Chart.Name }}
+  labels:
+    app: {{ .Values.Name | default .Chart.Name }}
+    chart: {{ .Values.Name | default .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+    revision: "{{ .Release.Revision }}"
+spec: 
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Values.Name | default .Chart.Name }}
+      release: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.Name | default .Chart.Name }}
+        chart: {{ .Values.Name | default .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
+        release: {{ .Release.Name }}
+        heritage: {{ .Release.Service }}
+        revision: "{{ .Release.Revision }}"
+    spec:
+      containers:
+      - name: {{ .Values.Name | default .Chart.Name }}
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        ports:
+        - containerPort: 80
+        envFrom:
+        - configMapRef:
+            name: {{ .Values.Name | default .Chart.Name }}
+        livenessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /healthz
+            port: 80
+            scheme: HTTP
+          periodSeconds: 5
+          successThreshold: 1
+          timeoutSeconds: 5
+        readinessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /healthz
+            port: 80
+            scheme: HTTP
+          periodSeconds: 5
+          initialDelaySeconds: 5
+          successThreshold: 1
+          timeoutSeconds: 30            
+        resources:
+          requests:
+            memory: "{{ .Values.memoryRequest }}"
+            cpu: "{{ .Values.cpuRequest }}"
+          limits:
+            memory: "{{ .Values.memoryLimit }}"
+            cpu: "{{ .Values.cpuLimit }}"               
+      imagePullSecrets:
+      - name: {{ .Values.dockerRegistrationSecret }}          

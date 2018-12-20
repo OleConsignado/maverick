@@ -1,0 +1,46 @@
+parentDomain: ***
+replicaCount: 1
+image:
+  repository: oleconsignado/***
+  tag: 0
+dockerRegistrationSecret: ole-docker-reg
+
+# Runtime
+ASPNETCORE_ENVIRONMENT: "Development"
+ApplicationInsights__Enabled: "false"
+TZ: "America/Sao_Paulo"
+
+AllowedHosts: "*"
+RequestTrackerConfiguration__RequestTrackerEnabled: "true"
+DistributedCacheConfiguration__CacheStorageType: "SqlServer"
+DistributedCacheConfiguration__CacheSqlConnectionString: "Data Source=****,1433;Initial Catalog=****;"
+DistributedCacheConfiguration__CacheSqlSchemaName: "dbo"
+DistributedCacheConfiguration__CacheSqlTableName: "*****"
+
+# Log
+Serilog__MinimumLevel__Default: Warning
+Serilog__MinimumLevel__Override__Ole: Information
+Serilog__MinimumLevel__Override__Otc: Information
+
+# Core
+# variaveis de ambiente que afetam comportamentos de negocio
+
+# Tmdb
+TmdbAdapterConfiguration__TmdbApiUrlBase: "https://api.themoviedb.org/3"
+TmdbAdapterConfiguration__TmdbApiKey: "1f54bd990f1cdfb230adb312546d765d"
+TmdbAdapterConfiguration__TempoDeCacheDaPesquisaEmSegundos: 30
+TmdbAdapterConfiguration__Idioma: "pt-BR"
+
+# DB
+# strings de conexao com banco de dados
+
+# Recursos
+memoryRequest: "256Mi"
+cpuRequest: "100m"
+memoryLimit: "384Mi"
+cpuLimit: "400m"
+
+# Jwt
+JwtConfiguration__Audience: "maverick"
+JwtConfiguration__Issuer: "maverick"
+JwtConfiguration__SecretKey: "123456789jfun44rk"

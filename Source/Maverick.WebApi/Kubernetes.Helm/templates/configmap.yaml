@@ -1,0 +1,53 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Values.Name | default .Chart.Name }}
+  labels:
+    app: {{ .Values.Name | default .Chart.Name }}
+    chart: {{ .Values.Name | default .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+data:
+  # Runtime
+  ASPNETCORE_ENVIRONMENT: "{{ .Values.ASPNETCORE_ENVIRONMENT }}"
+  ApplicationInsights__Enabled: "{{ .Values.ApplicationInsights__Enabled }}"
+  TZ: "{{ .Values.TZ }}"
+  ASPNETCORE_URLS: "http://*:80"
+  LANG: "pt_BR.UTF-8"
+  LANGUAGE: "pt_BR"
+  WEBSITE_LOAD_CERTIFICATES: "*"
+  CertificateValidationConfig__UseMiddleware: "false"
+  UseClientCertificate: "false"
+
+  AllowedHosts: "{{ .Values.AllowedHosts }}"
+  RequestTrackerConfiguration__RequestTrackerEnabled: "{{ .Values.RequestTrackerConfiguration__RequestTrackerEnabled }}"
+  DistributedCacheConfiguration__CacheStorageType: "{{ .Values.DistributedCacheConfiguration__CacheStorageType }}"
+  DistributedCacheConfiguration__CacheSqlConnectionString: "{{ .Values.DistributedCacheConfiguration__CacheSqlConnectionString }}"
+  DistributedCacheConfiguration__CacheSqlSchemaName: "{{ .Values.DistributedCacheConfiguration__CacheSqlSchemaName }}"
+  DistributedCacheConfiguration__CacheSqlTableName: "{{ .Values.DistributedCacheConfiguration__CacheSqlTableName }}"
+
+  # Log
+  Serilog__MinimumLevel__Default: "{{ .Values.Serilog__MinimumLevel__Default }}"
+  Serilog__MinimumLevel__Override__Ole: "{{ .Values.Serilog__MinimumLevel__Override__Ole }}"
+  Serilog__MinimumLevel__Override__Otc: "{{ .Values.Serilog__MinimumLevel__Override__Otc }}"
+
+  # Core
+  # variaveis de ambiente que afetam comportamentos de negocio
+  # Obs.: Os valores nao devem ser colocados diretamente no configmap. 
+  #       A configuracao deve ser parametrizada e o valor colocado no values.yaml  
+
+  # Tmdb
+  TmdbAdapterConfiguration__TmdbApiUrlBase: "{{ .Values.TmdbAdapterConfiguration__TmdbApiUrlBase }}"
+  TmdbAdapterConfiguration__TmdbApiKey: "{{ .Values.TmdbAdapterConfiguration__TmdbApiKey }}"
+  TmdbAdapterConfiguration__TempoDeCacheDaPesquisaEmSegundos: "{{ .Values.TmdbAdapterConfiguration__TempoDeCacheDaPesquisaEmSegundos }}"
+  TmdbAdapterConfiguration__Idioma: "{{ .Values.TmdbAdapterConfiguration__Idioma }}"
+
+  # DB
+  # strings de conexao com banco de dados
+  # Obs.: Os valores nao devem ser colocados diretamente no configmap. 
+  #       A configuracao deve ser parametrizada e o valor colocado no values.yaml  
+  
+  # Jwt
+  JwtConfiguration__Audience: "{{ .Values.JwtConfiguration__Audience }}"
+  JwtConfiguration__Issuer: "{{ .Values.JwtConfiguration__Issuer }}"
+  JwtConfiguration__SecretKey: "{{ .Values.JwtConfiguration__SecretKey }}"

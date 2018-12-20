@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Referencia: https://docs.microsoft.com/en-us/dotnet/core/tools/custom-templates -->
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata>
+        <id>Maverick</id>
+        <version>1.0.0</version>
+	<description>DDD/WebAPI project template.</description>
+        <authors>Ole Consignado</authors>
+        <packageTypes>
+            <packageType name="Template" />
+        </packageTypes>
+    </metadata>
+</package>
