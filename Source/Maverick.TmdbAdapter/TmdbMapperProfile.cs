@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
 using Maverick.Domain.Models;
-using Maverick.Tmdb.Adapter.Adaptee;
+using Maverick.TmdbAdapter.Clients;
 
-namespace Maverick.Tmdb.Adapter
+namespace Maverick.TmdbAdapter
 {
     public class TmdbMapperProfile : Profile
     {

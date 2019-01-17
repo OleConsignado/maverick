@@ -1,7 +1,7 @@
 ﻿using Refit;
 using System.Threading.Tasks;
 
-namespace Maverick.Tmdb.Adapter.Adaptee
+namespace Maverick.TmdbAdapter.Clients
 {
     /// <summary>
     /// Esta interface representa o cliente da API TMDb. 

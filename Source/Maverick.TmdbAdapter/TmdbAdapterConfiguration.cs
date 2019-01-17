@@ -1,6 +1,6 @@
 ﻿using Otc.ComponentModel.DataAnnotations;
 
-namespace Maverick.Tmdb.Adapter
+namespace Maverick.TmdbAdapter
 {
     public class TmdbAdapterConfiguration
     {

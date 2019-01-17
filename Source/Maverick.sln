@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.27703.2026
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Maverick.Domain", "Maverick.Domain\Maverick.Domain.csproj", "{95E8A578-6E07-4DCF-BF0A-7A213C349A2D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Maverick.Tmdb.Adapter", "Maverick.Tmdb.Adapter\Maverick.Tmdb.Adapter.csproj", "{479DCCA1-5620-4643-ACE5-2AB5E3D65972}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Maverick.TmdbAdapter", "Maverick.TmdbAdapter\Maverick.TmdbAdapter.csproj", "{479DCCA1-5620-4643-ACE5-2AB5E3D65972}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Maverick.WebApi", "Maverick.WebApi\Maverick.WebApi.csproj", "{CCBDBCB3-5DF2-48E5-9928-5501B852CB33}"
 EndProject

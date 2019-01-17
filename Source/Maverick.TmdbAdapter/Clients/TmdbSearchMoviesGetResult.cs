@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Maverick.Tmdb.Adapter.Adaptee
+namespace Maverick.TmdbAdapter.Clients
 {
     /// <summary>
     /// Modelo do retorno para a rota /search/movie do TMDb API (https://developers.themoviedb.org/3/search/search-movies)
