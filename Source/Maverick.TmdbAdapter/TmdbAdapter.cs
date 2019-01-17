@@ -2,7 +2,7 @@
 using Maverick.Domain.Adapters;
 using Maverick.Domain.Exceptions;
 using Maverick.Domain.Models;
-using Maverick.Tmdb.Adapter.Adaptee;
+using Maverick.TmdbAdapter.Clients;
 using Otc.Caching.Abstractions;
 using Refit;
 using System;
@@ -10,7 +10,7 @@ using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
 
-namespace Maverick.Tmdb.Adapter
+namespace Maverick.TmdbAdapter
 {
     internal class TmdbAdapter : ITmdbAdapter
     {
@@ -31,7 +31,7 @@ namespace Maverick.Tmdb.Adapter
         {
             try
             {
-                var cacheKey = $"filmes::{pesquisa.GetHashCode()}::{idioma}";
+                var cacheKey = $"filmes::{pesquisa.TermoPesquisa}::{pesquisa.AnoLancamento}::{idioma}";
 
                 if(!typedCache.TryGet(cacheKey, out TmdbSearchMoviesGetResult tmdbSearchMoviesGetResult))
                 {

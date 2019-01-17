@@ -1,6 +1,6 @@
 ﻿using Refit;
 
-namespace Maverick.Tmdb.Adapter.Adaptee
+namespace Maverick.TmdbAdapter.Clients
 {
     /// <summary>
     /// Modelo do entrada para a rota /search/movie do TMDb API (https://developers.themoviedb.org/3/search/search-movies)

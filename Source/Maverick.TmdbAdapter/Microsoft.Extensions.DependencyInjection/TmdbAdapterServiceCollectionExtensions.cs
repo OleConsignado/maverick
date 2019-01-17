@@ -1,6 +1,6 @@
 ﻿using Maverick.Domain.Adapters;
-using Maverick.Tmdb.Adapter;
-using Maverick.Tmdb.Adapter.Adaptee;
+using Maverick.TmdbAdapter;
+using Maverick.TmdbAdapter.Clients;
 using Otc.Networking.Http.Client.Abstractions;
 using Refit;
 using System;
