@@ -32,7 +32,7 @@ namespace Microsoft.Extensions.DependencyInjection
                 return RestService.For<ITmdbApi>(httpClient);
             });
 
-            // Registra a implementacao do ITmdbAdapter para ser utilizado na camada WebApi.
+            // Registra a implementacao do ITmdbAdapter para ser utilizado na camada de aplicacao.
             services.AddScoped<ITmdbAdapter, TmdbAdapter>();
 
             return services;
