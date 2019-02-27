@@ -18,18 +18,6 @@
   <ItemGroup>
     <Content Remove="appsettings.json" />
   </ItemGroup>
-  
-  <ItemGroup>
-    <None Remove=".dockerignore" />
-    <None Remove="Dockerfile" />
-  </ItemGroup>
-  
-  <ItemGroup>
-    <Content Include=".dockerignore" />
-    <Content Include="Dockerfile">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
 
   <ItemGroup>
     <None Include="appsettings.json" />
@@ -45,6 +33,15 @@
     <ProjectReference Include="..\Maverick.Application\Maverick.Application.csproj" />
     <ProjectReference Include="..\Maverick.TmdbAdapter\Maverick.TmdbAdapter.csproj" />
     <ProjectReference Include="..\Maverick.Domain\Maverick.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update=".dockerignore">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Dockerfile">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
