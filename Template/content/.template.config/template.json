@@ -7,7 +7,7 @@
   "shortName": "maverick",
   "sourceName": "Maverick",
   "symbols": {
-    "k8sParentDomain": {
+    "k8s-parent-domain": {
       "type": "parameter",
       "isRequired": "true",
       "datatype": "string",
@@ -15,7 +15,7 @@
       "defaultValue": "mykubernetes-cluster.mycompany.com",
       "description": "Kubernetes ingress parent domain."
     },
-    "cacheSqlConnectionString": {
+    "cache-sql-connection-string": {
       "type": "parameter",
       "isRequired": "true",
       "datatype": "string",
@@ -23,7 +23,7 @@
       "defaultValue": "",
       "description": "SqlConnectionString to cache catalog. Example: Data Source=SQLSERVERHOST,1433;Initial Catalog=CacheCatalog;"
     },
-    "cacheTable": {
+    "cache-table": {
       "type": "parameter",
       "isRequired": "false",
       "datatype": "string",
@@ -31,7 +31,7 @@
       "defaultValue": "CacheTable",
       "description": "Cache table name."
     },  
-    "dockerHubUser": {
+    "dockerhub-user": {
       "type": "parameter",
       "isRequired": "false",
       "datatype": "string",
@@ -39,21 +39,21 @@
       "defaultValue": "oleconsignado",
       "description": "Docker Hub username."
     },
-    "webAPIHelmChartName": {
+    "webapi-helm-chartname": {
       "type": "parameter",
       "isRequired": "true",
       "datatype": "string",
       "replaces": "{{webAPIHelmChartName}}",
       "description": "Helm chart/Docker image name."
     },
-    "webAPIDescription" {
+    "webapi-description": {
       "type": "parameter",
       "isRequired": "true",
       "datatype": "string",
       "replaces": "{{webAPIDescription}}",
       "description": "WebAPI description."
     },
-    "uniqueIdentifier": {
+    "uniqueidentifier": {
       "type": "generated",
       "generator": "guid",
       "replaces": "{{uniqueIdentifier}}",
@@ -61,5 +61,5 @@
       "format":"X"
       }    
     }  
-    }  
+  }  
 }
