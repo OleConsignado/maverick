@@ -12,7 +12,9 @@ namespace Maverick.Domain.Services
         /// Realiza pesquisa em filmes.
         /// </summary>
         /// <param name="pesquisa">Criterios de pesquisa.</param>
-        /// <returns>Lista dos filmes encontrados conforme criterio de pesquisa.</returns>
+        /// <returns>
+        ///     Lista dos filmes encontrados conforme criterio de pesquisa.
+        /// </returns>
         /// <exception cref="BuscarFilmesCoreException" />
         /// <exception cref="ModelValidationException" />
         Task<IEnumerable<Filme>> ObterFilmesAsync(Pesquisa pesquisa);

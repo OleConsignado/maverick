@@ -1,7 +1,7 @@
-parentDomain: ***
+parentDomain: {{k8sParentDomain}}
 replicaCount: 1
 image:
-  repository: oleconsignado/***
+  repository: {{dockerHubUser}}/{{webAPIHelmChartName}}
   tag: 0
 dockerRegistrationSecret: ole-docker-reg
 
@@ -13,9 +13,9 @@ TZ: "America/Sao_Paulo"
 AllowedHosts: "*"
 RequestTrackerConfiguration__RequestTrackerEnabled: "true"
 DistributedCacheConfiguration__CacheStorageType: "SqlServer"
-DistributedCacheConfiguration__CacheSqlConnectionString: "Data Source=****,1433;Initial Catalog=****;"
+DistributedCacheConfiguration__CacheSqlConnectionString: "{{cacheSqlConnectionString}};Application Name={{helmChartName}};"
 DistributedCacheConfiguration__CacheSqlSchemaName: "dbo"
-DistributedCacheConfiguration__CacheSqlTableName: "*****"
+DistributedCacheConfiguration__CacheSqlTableName: "{{cacheTable}}"
 
 # Log
 Serilog__MinimumLevel__Default: Warning
@@ -41,6 +41,6 @@ memoryLimit: "384Mi"
 cpuLimit: "400m"
 
 # Jwt
-JwtConfiguration__Audience: "maverick"
-JwtConfiguration__Issuer: "maverick"
-JwtConfiguration__SecretKey: "123456789jfun44rk"
+JwtConfiguration__Audience: "{{helmChartName}}"
+JwtConfiguration__Issuer: "{{helmChartName}}"
+JwtConfiguration__SecretKey: "{{uniqueIdentifier}}"

@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+using AutoMapper;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Maverick.TmdbAdapter;
@@ -12,9 +12,11 @@ namespace Maverick.WebApi
     /// <summary>
     /// Este eh o Startup da API. 
     /// <para>
-    /// A base <see cref="ApiBootStartup"/> implementa uma serie de requisitos que consideramos
-    /// necessarios para qualquer API, como Log, Swagger, Authorizacao, Versionamento e mais.
-    /// Veja https://github.com/OleConsignado/otc-aspnetcore-apiboot para maiores detalhes (talvez a documentacao ainda esteja em construcao).
+    /// A base <see cref="ApiBootStartup"/> implementa uma serie de requisitos
+    /// que consideramos necessarios para qualquer API, como Log, Swagger,
+    /// Authorizacao, Versionamento e mais.
+    /// Veja https://github.com/OleConsignado/otc-aspnetcore-apiboot para maiores
+    /// detalhes.
     /// </para>
     /// </summary>
     public class Startup : ApiBootStartup
@@ -22,7 +24,7 @@ namespace Maverick.WebApi
         protected override ApiMetadata ApiMetadata => new ApiMetadata()
         {
             Name = "Maverick",
-            Description = "Exemplo de implementação de uma API de fachada para o TMDb API.",
+            Description = "{{webAPIDescription}}",
             DefaultApiVersion = "1.0"
         };
 
@@ -47,10 +49,14 @@ namespace Maverick.WebApi
         /// </summary>
         /// <param name="services"></param>
         [ExcludeFromCodeCoverage]
-        protected override void ConfigureApiServices(IServiceCollection services)
+        protected override void ConfigureApiServices(
+            IServiceCollection services)
         {
-            services.AddTmdbAdapter(Configuration.SafeGet<TmdbAdapterConfiguration>());
-            services.AddApplication(Configuration.SafeGet<ApplicationConfiguration>());
+            services.AddTmdbAdapter(
+                Configuration.SafeGet<TmdbAdapterConfiguration>());
+
+            services.AddApplication
+                (Configuration.SafeGet<ApplicationConfiguration>());
         }
     }
 }

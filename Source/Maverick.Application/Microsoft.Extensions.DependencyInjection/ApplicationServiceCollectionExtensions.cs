@@ -1,14 +1,16 @@
-﻿using Maverick.Application;
+using Maverick.Application;
 using Maverick.Domain.Services;
 using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Microsoft.Extensions.DependencyInjection
 {
     public static class ApplicationServiceCollectionExtensions
     {
-        public static IServiceCollection AddApplication(this IServiceCollection services, ApplicationConfiguration applicationConfiguration)
+        [ExcludeFromCodeCoverage]
+        public static IServiceCollection AddApplication(
+            this IServiceCollection services,
+            ApplicationConfiguration applicationConfiguration)
         {
             if (services == null)
             {

@@ -7,12 +7,15 @@ namespace Maverick.Domain.Exceptions
     [Serializable]
     public class BuscarFilmesCoreException : CoreException<BuscarFilmesCoreError>
     {
-        public BuscarFilmesCoreException(BuscarFilmesCoreError buscarFilmesCoreError)
+        public BuscarFilmesCoreException(
+            BuscarFilmesCoreError buscarFilmesCoreError)
         {
             AddError(buscarFilmesCoreError);
         }
 
-        protected BuscarFilmesCoreException(SerializationInfo info, StreamingContext context) : base(info, context)
+        protected BuscarFilmesCoreException(SerializationInfo info, 
+            StreamingContext context) 
+            : base(info, context)
         {
         }
 
@@ -22,9 +25,12 @@ namespace Maverick.Domain.Exceptions
     public class BuscarFilmesCoreError : CoreError
     {
         public static BuscarFilmesCoreError LimiteDeRequisicoesAtingido =>
-            new BuscarFilmesCoreError("LimiteDeRequisicoesAtingido", "O limite de requisições ao provedor de filmes foi atingido, tente novamente mais tarde.");
+            new BuscarFilmesCoreError("LimiteDeRequisicoesAtingido", 
+                "O limite de requisições ao provedor de filmes foi atingido, " +
+                "tente novamente mais tarde.");
         
-        protected BuscarFilmesCoreError(string key, string message) : base(key, message)
+        protected BuscarFilmesCoreError(string key, string message) 
+            : base(key, message)
         {
         }
     }
