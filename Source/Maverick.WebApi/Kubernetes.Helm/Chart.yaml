@@ -1,4 +1,4 @@
 apiVersion: v1
-description: Definicoes para maverick
-name: maverick
+description: Definicoes para {{webAPIHelmChartName}}
+name: {{webAPIHelmChartName}}
 version: 0.1.0
