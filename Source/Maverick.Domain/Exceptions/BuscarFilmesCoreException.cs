@@ -19,13 +19,13 @@ namespace Maverick.Domain.Exceptions
         {
         }
 
-        public override string Key => "BuscarFilmesCoreException";
+        public override string Key => nameof(BuscarFilmesCoreException);
     }
 
     public class BuscarFilmesCoreError : CoreError
     {
         public static BuscarFilmesCoreError LimiteDeRequisicoesAtingido =>
-            new BuscarFilmesCoreError("LimiteDeRequisicoesAtingido", 
+            new BuscarFilmesCoreError(nameof(LimiteDeRequisicoesAtingido), 
                 "O limite de requisições ao provedor de filmes foi atingido, " +
                 "tente novamente mais tarde.");
         
