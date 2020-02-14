@@ -17,7 +17,6 @@
   
   <ItemGroup>
     <PackageReference Include="Otc.ComponentModel.Annotations" Version="1.0.1" />
-    <PackageReference Include="Otc.DomainBase.Exceptions" Version="3.1.1" />
   </ItemGroup>  
   
 </Project>

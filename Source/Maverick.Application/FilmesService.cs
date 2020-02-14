@@ -1,10 +1,12 @@
-﻿using Maverick.Domain.Adapters;
+using Maverick.Domain.Adapters;
+using Maverick.Domain.Exceptions;
 using Maverick.Domain.Models;
 using Maverick.Domain.Services;
 using Microsoft.Extensions.Logging;
 using Otc.Validations.Helpers;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Maverick.Application
@@ -28,6 +30,11 @@ namespace Maverick.Application
                 throw new ArgumentNullException(nameof(loggerFactory));
         }
 
+        private readonly IEnumerable<string> termosNaoPermitidos = new string[]
+        {
+            "pornografia"
+        };
+
         public async Task<IEnumerable<Filme>> ObterFilmesAsync(
             Pesquisa pesquisa)
         {
@@ -37,6 +44,13 @@ namespace Maverick.Application
             }
 
             ValidationHelper.ThrowValidationExceptionIfNotValid(pesquisa);
+
+            // Aplica regra sobre o termo de pesquisa
+            if(termosNaoPermitidos.Any(x => pesquisa.TermoPesquisa.Contains(x)))
+            {
+                throw new BuscarFilmesCoreException(
+                    BuscarFilmesCoreError.TermoDePesquisaNaoPermitido);
+            }
 
             logger.LogInformation("Realizando chamada ao TMDb com os seguintes " +
                 "criterios de pesquisa: {@CriteriosPesquisa}", 

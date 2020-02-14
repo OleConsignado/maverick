@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+using AutoMapper;
 using Maverick.Domain.Models;
 using Maverick.WebApi.Dtos;
 
@@ -10,6 +10,8 @@ namespace Maverick.WebApi
         {
             CreateMap<Filme, FilmesGetResult>();
             CreateMap<FilmesGet, Pesquisa>();
+
+            // TODO: Adicionar mapeamento para *Core[Exception/Error]
         }
     }
 }
