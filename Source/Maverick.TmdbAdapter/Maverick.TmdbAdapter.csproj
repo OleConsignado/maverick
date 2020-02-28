@@ -15,8 +15,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AutoMapper" Version="8.1.0" />
-    <PackageReference Include="Refit" Version="4.7.9" />
+    <PackageReference Include="AutoMapper" Version="9.0.0" />
+    <PackageReference Include="Refit" Version="5.0.23" />
     <PackageReference Include="Otc.Caching.Abstractions" Version="1.0.0" />
     <PackageReference Include="Otc.Networking.Http.Client.Abstractions" Version="1.0.1" />
   </ItemGroup>

@@ -1,10 +1,10 @@
+using System;
+using System.Diagnostics.CodeAnalysis;
 using Maverick.Domain.Adapters;
 using Maverick.TmdbAdapter;
 using Maverick.TmdbAdapter.Clients;
 using Otc.Networking.Http.Client.Abstractions;
 using Refit;
-using System;
-using System.Diagnostics.CodeAnalysis;
 
 namespace Microsoft.Extensions.DependencyInjection
 {
