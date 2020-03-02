@@ -1,11 +1,11 @@
+using System.Diagnostics.CodeAnalysis;
 using AutoMapper;
+using Maverick.Application;
+using Maverick.TmdbAdapter;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Maverick.TmdbAdapter;
 using Otc.AspNetCore.ApiBoot;
 using Otc.Extensions.Configuration;
-using System.Diagnostics.CodeAnalysis;
-using Maverick.Application;
 
 namespace Maverick.WebApi
 {
@@ -14,7 +14,7 @@ namespace Maverick.WebApi
     /// <para>
     /// A base <see cref="ApiBootStartup"/> implementa uma serie de requisitos
     /// que consideramos necessarios para qualquer API, como Log, Swagger,
-    /// Authorizacao, Versionamento e mais.
+    /// Authorizacao, Versionamento e muito mais.
     /// Veja https://github.com/OleConsignado/otc-aspnetcore-apiboot para maiores
     /// detalhes.
     /// </para>
@@ -27,16 +27,6 @@ namespace Maverick.WebApi
             Description = "{{webAPIDescription}}",
             DefaultApiVersion = "1.0"
         };
-
-        static Startup()
-        {
-            Mapper.Initialize(config =>
-            {
-                config.AddProfile<TmdbMapperProfile>();
-                config.AddProfile<WebApiMapperProfile>();
-            });
-        }
-
 
         public Startup(IConfiguration configuration)
             : base(configuration)
@@ -52,6 +42,10 @@ namespace Maverick.WebApi
         protected override void ConfigureApiServices(
             IServiceCollection services)
         {
+            services.AddAutoMapper(
+                typeof(TmdbMapperProfile),
+                typeof(WebApiMapperProfile));
+
             services.AddTmdbAdapter(
                 Configuration.SafeGet<TmdbAdapterConfiguration>());
 

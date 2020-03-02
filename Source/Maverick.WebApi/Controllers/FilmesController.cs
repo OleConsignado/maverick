@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using AutoMapper;
 using Maverick.Domain.Models;
 using Maverick.Domain.Services;
@@ -6,9 +9,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Otc.AspNetCore.ApiBoot;
 using Otc.DomainBase.Exceptions;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace Maverick.WebApi.Controllers
 {
@@ -16,11 +16,13 @@ namespace Maverick.WebApi.Controllers
     public class FilmesController : ApiController
     {
         private readonly IFilmesService filmesService;
+        private readonly IMapper mapper;
 
-        public FilmesController(IFilmesService filmesService)
+        public FilmesController(IFilmesService filmesService, IMapper mapper)
         {
-            this.filmesService = filmesService ?? 
+            this.filmesService = filmesService ??
                 throw new ArgumentNullException(nameof(filmesService));
+            this.mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
 
         /// <summary>
@@ -41,11 +43,11 @@ namespace Maverick.WebApi.Controllers
         public async Task<IActionResult> GetFilmesAsync(
             [FromQuery] FilmesGet filmesGet)
         {
-            Pesquisa pesquisa = Mapper.Map<FilmesGet, Pesquisa>(filmesGet);
+            Pesquisa pesquisa = mapper.Map<FilmesGet, Pesquisa>(filmesGet);
             IEnumerable<Filme> filmes = await filmesService
                 .ObterFilmesAsync(pesquisa);
             IEnumerable<FilmesGetResult> filmesGetResults =
-                Mapper.Map<IEnumerable<FilmesGetResult>>(filmes);
+                mapper.Map<IEnumerable<FilmesGetResult>>(filmes);
 
             return Ok(filmesGetResults);
         }

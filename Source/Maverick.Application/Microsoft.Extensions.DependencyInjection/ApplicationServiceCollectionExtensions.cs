@@ -22,10 +22,8 @@ namespace Microsoft.Extensions.DependencyInjection
                 throw new ArgumentNullException(nameof(applicationConfiguration));
             }
 
-            // Registra a instancia do objeto de configuracoes desta camanda.
             services.AddSingleton(applicationConfiguration);
 
-            // Registra o servico descrito pela interface IFilmesService
             services.AddScoped<IFilmesService, FilmesService>();
 
             return services;
