@@ -1,5 +1,24 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
+  <!-- Ensure pre commit hook is present locally; DO NOT REMOVE -->
+  <Target Name="CheckAndInstallPreCommitHook" BeforeTargets="Build" >
+    <Exec Condition=" '$(OS)' != 'Windows_NT' " Command="
+        if [ -d ../../.git ]
+        then
+          if ! [ -f ..\..\.git\hooks\pre-commit ]
+          then
+            cp ../../.pre-commit-hook ../../.git/hooks/pre-commit >/dev/null 2>&amp;1
+            chmod a+x ../../.git/hooks/pre-commit
+          fi
+        fi" />
+    <Exec Condition=" '$(OS)' == 'Windows_NT' " Command="
+        @IF EXIST ..\..\.git @(
+          @IF NOT EXIST ..\..\.git\hooks\pre-commit @(
+            COPY ..\..\.pre-commit-hook ..\..\.git\hooks\pre-commit >nul 2>&amp;1
+           )
+         )"  />
+  </Target>
+  
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <DebugType>Full</DebugType>
