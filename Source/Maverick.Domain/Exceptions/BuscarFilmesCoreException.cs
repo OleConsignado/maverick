@@ -1,4 +1,4 @@
-﻿using Otc.DomainBase.Exceptions;
+using Otc.DomainBase.Exceptions;
 using System;
 using System.Runtime.Serialization;
 
@@ -13,8 +13,8 @@ namespace Maverick.Domain.Exceptions
             AddError(buscarFilmesCoreError);
         }
 
-        protected BuscarFilmesCoreException(SerializationInfo info, 
-            StreamingContext context) 
+        protected BuscarFilmesCoreException(SerializationInfo info,
+            StreamingContext context)
             : base(info, context)
         {
         }
@@ -25,11 +25,11 @@ namespace Maverick.Domain.Exceptions
     public class BuscarFilmesCoreError : CoreError
     {
         public static BuscarFilmesCoreError LimiteDeRequisicoesAtingido =>
-            new BuscarFilmesCoreError("LimiteDeRequisicoesAtingido", 
+            new BuscarFilmesCoreError("LimiteDeRequisicoesAtingido",
                 "O limite de requisições ao provedor de filmes foi atingido, " +
                 "tente novamente mais tarde.");
-        
-        protected BuscarFilmesCoreError(string key, string message) 
+
+        protected BuscarFilmesCoreError(string key, string message)
             : base(key, message)
         {
         }

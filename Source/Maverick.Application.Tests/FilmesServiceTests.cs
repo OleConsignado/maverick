@@ -51,9 +51,9 @@ namespace Maverick.Application.Tests
 
             var exepectedSingle = expected.Single();
 
-            Assert.Contains(filmes, f => 
-                    f.Id == exepectedSingle.Id && 
-                    f.Descricao == exepectedSingle.Descricao && 
+            Assert.Contains(filmes, f =>
+                    f.Id == exepectedSingle.Id &&
+                    f.Descricao == exepectedSingle.Descricao &&
                     f.Nome == exepectedSingle.Nome);
         }
 

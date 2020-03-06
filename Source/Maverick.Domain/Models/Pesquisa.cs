@@ -1,4 +1,4 @@
-﻿using Otc.ComponentModel.DataAnnotations;
+using Otc.ComponentModel.DataAnnotations;
 
 namespace Maverick.Domain.Models
 {

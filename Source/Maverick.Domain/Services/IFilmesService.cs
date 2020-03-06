@@ -1,4 +1,4 @@
-﻿using Maverick.Domain.Exceptions;
+using Maverick.Domain.Exceptions;
 using Maverick.Domain.Models;
 using Otc.DomainBase.Exceptions;
 using System.Collections.Generic;

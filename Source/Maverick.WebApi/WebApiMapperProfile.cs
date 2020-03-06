@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+using AutoMapper;
 using Maverick.Domain.Models;
 using Maverick.WebApi.Dtos;
 
