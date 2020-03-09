@@ -36,7 +36,7 @@ function deploy
 	cp -Rvp ../Source/* ./content/
 
 	echo "Packing..."
-	nuget pack *.nuspec -OutputDirectory $ARTIFACTS_FOLDER
+	nuget pack *.nuspec -NoDefaultExcludes -OutputDirectory $ARTIFACTS_FOLDER
 
 	echo "Pushing..."
 	dotnet nuget push $ARTIFACTS_FOLDER/*.nupkg --source https://api.nuget.org/v3/index.json --api-key $NUGET_API_KEY
