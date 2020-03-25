@@ -1,40 +1,35 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
-
+<Project Sdk="Microsoft.NET.Sdk.Web" ToolsVersion="Current">
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
+    <FileUpgradeFlags>40</FileUpgradeFlags>
+    <UpgradeBackupLocation>C:\DTI\ole\Maverick\Source\Backup\Maverick.WebApi\</UpgradeBackupLocation>
+    <OldToolsVersion>2.0</OldToolsVersion>
   </PropertyGroup>
-
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DocumentationFile>bin\Debug\netcoreapp2.1\Maverick.WebApi.xml</DocumentationFile>
     <NoWarn>1701;1702;1591</NoWarn>
   </PropertyGroup>
-
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <DocumentationFile>bin\Release\netcoreapp2.1\Maverick.WebApi.xml</DocumentationFile>
     <NoWarn>1701;1702;1591</NoWarn>
   </PropertyGroup>
-  
   <ItemGroup>
     <Content Remove="appsettings.json" />
   </ItemGroup>
-
   <ItemGroup>
     <None Include="appsettings.json" />
   </ItemGroup>
-
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="9.0.0" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
     <PackageReference Include="Otc.Validations.Helpers" Version="2.1.0" />
     <PackageReference Include="Otc.AspNetCore.ApiBoot" Version="3.2.0" />
   </ItemGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\Maverick.Application\Maverick.Application.csproj" />
     <ProjectReference Include="..\Maverick.TmdbAdapter\Maverick.TmdbAdapter.csproj" />
     <ProjectReference Include="..\Maverick.Domain\Maverick.Domain.csproj" />
   </ItemGroup>
-
   <ItemGroup>
     <None Update=".dockerignore">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -43,5 +38,4 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
-
 </Project>

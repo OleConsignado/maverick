@@ -1,23 +1,21 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-
+﻿<Project Sdk="Microsoft.NET.Sdk" ToolsVersion="Current">
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <DebugType>Full</DebugType>
+    <FileUpgradeFlags>40</FileUpgradeFlags>
+    <UpgradeBackupLocation>C:\DTI\ole\Maverick\Source\Backup\Maverick.Domain\</UpgradeBackupLocation>
+    <OldToolsVersion>2.0</OldToolsVersion>
   </PropertyGroup>
-
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <NoWarn>1701;1702;1591</NoWarn>
     <DocumentationFile>bin\Release\netstandard2.0\Maverick.Domain.xml</DocumentationFile>
   </PropertyGroup>
-
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <NoWarn>1701;1702;1591</NoWarn>
     <DocumentationFile>bin\Debug\netstandard2.0\Maverick.Domain.xml</DocumentationFile>
-  </PropertyGroup>  
-  
+  </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Otc.ComponentModel.Annotations" Version="1.0.1" />
     <PackageReference Include="Otc.DomainBase.Exceptions" Version="3.1.1" />
-  </ItemGroup>  
-  
+  </ItemGroup>
 </Project>
