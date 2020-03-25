@@ -7,7 +7,6 @@ namespace Maverick.Application.IntegrationTest
 {
     public class BaseDatabaseTest 
     {
-
         public BaseDatabaseTest()
         {
             InMemoryDatabase.CreateDatabase();

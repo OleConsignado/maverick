@@ -1,31 +1,22 @@
-using System.Data;
-using Dapper;
 using Microsoft.Data.Sqlite;
-using Maverick.Domain.Models;
+using Dapper;
 
 namespace Maverick.Application.IntegrationTest.Configuracoes
 {
     public static class InMemoryDatabase
     {
-
-        private static SqliteConnection Connection;
-
-
-
-        //public InMemoryDatabase() 
-        //{
-        //    CreateDatabase();
-        //}
+        private static SqliteConnection connection;
 
         public static SqliteConnection GetInMemoryOpenSqliteConnection()
         {
-            if (Connection == null)
-                Connection = new SqliteConnection("Data Source=:memory:;");
+            if (connection == null)
+            {
+                connection = new SqliteConnection("Data Source=:memory:;");
+            }
 
-            return Connection;
+            return connection;
         }
-
-
+        
         public static void CreateDatabase()
         {
             var conn = GetInMemoryOpenSqliteConnection();
