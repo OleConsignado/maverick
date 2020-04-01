@@ -37,19 +37,22 @@ namespace Maverick.WebApi.Controllers
         /// </response>
         /// <response code="500">Erro interno.</response>
         [HttpGet, AllowAnonymous]
-        [ProducesResponseType(typeof(FilmesGetResult), 200)]
+        [ProducesResponseType(typeof(Filme[]), 200)]
         [ProducesResponseType(typeof(CoreException<CoreError>), 400)]
         [ProducesResponseType(typeof(InternalError), 500)]
         public async Task<IActionResult> GetFilmesAsync(
             [FromQuery] FilmesGet filmesGet)
         {
-            Pesquisa pesquisa = mapper.Map<FilmesGet, Pesquisa>(filmesGet);
-            IEnumerable<Filme> filmes = await filmesService
-                .ObterFilmesAsync(pesquisa);
-            IEnumerable<FilmesGetResult> filmesGetResults =
-                mapper.Map<IEnumerable<FilmesGetResult>>(filmes);
+            try
+            {
+                Pesquisa pesquisa = mapper.Map<FilmesGet, Pesquisa>(filmesGet);
 
-            return Ok(filmesGetResults);
+                return Ok(await filmesService.ObterFilmesAsync(pesquisa));
+            }
+            catch(Exception e)
+            {
+                return BadRequest(e.Message);
+            }
         }
     }
 }

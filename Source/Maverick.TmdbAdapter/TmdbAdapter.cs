@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -49,13 +50,20 @@ namespace Maverick.TmdbAdapter
                     var tmdbSearchMoviesGet =
                         mapper.Map<TmdbSearchMoviesGet>(pesquisa);
 
-                    tmdbSearchMoviesGet.ApiKey =
+                    tmdbSearchMoviesGet.api_key =
                         tmdbAdapterConfiguration.TmdbApiKey;
 
                     tmdbSearchMoviesGet.Language = idioma;
 
                     tmdbSearchMoviesGetResult = await tmdbApi
                         .SearchMovies(tmdbSearchMoviesGet);
+
+                    var gendersResult = await tmdbApi.GetGenders(new TMDBRequestBaseDTO() { api_key = tmdbAdapterConfiguration.TmdbApiKey, Language = idioma });
+
+                    foreach(var item in tmdbSearchMoviesGetResult.Results)
+                    {
+                        item.Generos = gendersResult.Genres.Where(g => item.genre_ids.Contains(g.ID)).Select(g => g.Name).ToList();
+                    }
 
                     typedCache.Set(cacheKey, tmdbSearchMoviesGetResult,
                         TimeSpan

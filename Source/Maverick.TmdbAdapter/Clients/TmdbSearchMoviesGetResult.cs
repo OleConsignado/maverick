@@ -33,6 +33,10 @@ namespace Maverick.TmdbAdapter.Clients
 
             [JsonProperty(PropertyName = "release_date")]
             public DateTimeOffset? ReleaseDate { get; set; }
+
+            public long[] genre_ids { get; set; }
+
+            public List<string> Generos { get; set; }
         }
 
         public IEnumerable<ResultItem> Results { get; set; }

@@ -17,15 +17,12 @@ namespace Maverick.TmdbAdapter.Clients
     /// O mapeamento eh feito em <see cref="TmdbAdapter.GetFilmesAsync"/>.
     /// </para>
     /// </summary>
-    internal class TmdbSearchMoviesGet
+    internal class TmdbSearchMoviesGet : TMDBRequestBaseDTO
     {
         [AliasAs("query")]
         public string Query { get; set; }
-        [AliasAs("api_key")]
-        public string ApiKey { get; set; }
-        [AliasAs("language")]
-        public string Language { get; set; }
         [AliasAs("year")]
         public int? Year { get; set; }
+
     }
 }

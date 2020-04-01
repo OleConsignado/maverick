@@ -1,4 +1,5 @@
 using Refit;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Maverick.TmdbAdapter.Clients
@@ -14,5 +15,8 @@ namespace Maverick.TmdbAdapter.Clients
         [Get("/search/movie")]
         Task<TmdbSearchMoviesGetResult> SearchMovies(
             [Query] TmdbSearchMoviesGet tmdbSearchMoviesGet);
+
+        [Get("/genre/movie/list")]
+        Task<TMDBGendersGetResult> GetGenders(TMDBRequestBaseDTO dto);
     }
 }
