@@ -1,4 +1,5 @@
-﻿using System;
+using System;
+using System.Collections.Generic;
 
 namespace Maverick.WebApi.Dtos
 {
@@ -23,5 +24,7 @@ namespace Maverick.WebApi.Dtos
         /// Data de lancamento do filme.
         /// </summary>
         public DateTimeOffset DataLancamento { get; set; }
+
+        public List<string> Generos { get; set; }
     }
 }

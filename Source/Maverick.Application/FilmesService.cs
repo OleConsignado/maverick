@@ -37,8 +37,19 @@ namespace Maverick.Application
                 "criterios de pesquisa: {@CriteriosPesquisa}",
                 new { Criterios = pesquisa, configuration.Idioma });
 
-            IEnumerable<Filme> resultado = await tmdbAdapter
-                .GetFilmesAsync(pesquisa, configuration.Idioma);
+            IEnumerable<Filme> resultado;
+
+            try
+            {
+                resultado = await tmdbAdapter
+                    .GetFilmesAsync(pesquisa, configuration.Idioma);
+            }
+            catch(Exception e)
+            {
+                logger.LogError($"Ocorreu um erro: {e.Message} \n{e.StackTrace}");
+
+                throw new Exception(e.Message);
+            }
 
             logger.LogInformation("Chamada ao TMDb concluida com sucesso.");
 

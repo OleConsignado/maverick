@@ -1,4 +1,5 @@
-﻿using System;
+using System;
+using System.Collections.Generic;
 
 namespace Maverick.Domain.Models
 {
@@ -23,5 +24,10 @@ namespace Maverick.Domain.Models
         /// Data de lancamento do filme.
         /// </summary>
         public DateTimeOffset DataLancamento { get; set; }
+
+        /// <summary>
+        /// Lista de generos atribuidos ao filme
+        /// </summary>
+        public List<string> Generos { get; set; }
     }
 }
