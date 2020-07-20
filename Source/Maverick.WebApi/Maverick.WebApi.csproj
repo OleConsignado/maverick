@@ -24,7 +24,7 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="10.0.0" />
-    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.0.1" />
     <PackageReference Include="Otc.Validations.Helpers" Version="2.1.0" />
     <PackageReference Include="Otc.AspNetCore.ApiBoot" Version="3.3.1" />
   </ItemGroup>
