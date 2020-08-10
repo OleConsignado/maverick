@@ -13,7 +13,7 @@ TZ: "America/Sao_Paulo"
 AllowedHosts: "*"
 RequestTrackerConfiguration__RequestTrackerEnabled: "true"
 DistributedCacheConfiguration__CacheStorageType: "SqlServer"
-DistributedCacheConfiguration__CacheSqlConnectionString: "{{cacheSqlConnectionString}};Application Name={{helmChartName}};"
+DistributedCacheConfiguration__CacheSqlConnectionString: "{{cacheSqlConnectionString}};Application Name={{webAPIHelmChartName}};"
 DistributedCacheConfiguration__CacheSqlSchemaName: "dbo"
 DistributedCacheConfiguration__CacheSqlTableName: "{{cacheTable}}"
 
@@ -41,6 +41,6 @@ memoryLimit: "384Mi"
 cpuLimit: "400m"
 
 # Jwt
-JwtConfiguration__Audience: "{{helmChartName}}"
-JwtConfiguration__Issuer: "{{helmChartName}}"
+JwtConfiguration__Audience: "{{webAPIHelmChartName}}"
+JwtConfiguration__Issuer: "{{webAPIHelmChartName}}"
 JwtConfiguration__SecretKey: "{{uniqueIdentifier}}"
