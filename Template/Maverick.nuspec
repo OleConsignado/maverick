@@ -3,7 +3,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
         <id>Maverick</id>
-        <version>3.1.2</version>
+        <version>3.1.3</version>
 	<description>DDD/WebAPI project template.</description>
         <authors>Ole Consignado</authors>
         <packageTypes>
