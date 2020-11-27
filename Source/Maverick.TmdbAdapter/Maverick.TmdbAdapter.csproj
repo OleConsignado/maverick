@@ -16,7 +16,7 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="10.0.0" />
-    <PackageReference Include="Refit" Version="5.2.1" />
+    <PackageReference Include="Refit" Version="5.2.4" />
     <PackageReference Include="Otc.Caching.Abstractions" Version="1.1.0" />
     <PackageReference Include="Otc.Networking.Http.Client.Abstractions" Version="1.0.1" />
   </ItemGroup>
